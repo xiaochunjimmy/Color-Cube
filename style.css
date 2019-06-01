@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background-image: linear-gradient(to top, #FFF, #EFF2FE);
+    font-family: "PingFang SC", "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+}
+
+header, footer {
+    display: flex;
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+    height: 80px;
+    padding: 0 calc((100% - 1160px) / 2);
+    background-color: #FFF;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    margin-left: 24px;
+    background: url('color-cube-logo.png');
+    background-size: cover;
+}
+
+.github {
+    position: relative;
+    margin-right: 24px;
+    padding: 8px 14px 8px 38px;
+    color: #2D323E;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    border-radius: 20px;
+    transition: all .3s;
+    background: rgba(18, 24, 58, .06);
+}
+
+.github::before {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: 10px;
+    background: url("github.svg");
+}
+
+.github:hover {
+    background: rgba(18, 24, 58, .12);
+}
+
+.canvas {
+    display: flex;
+    width: 100vw;
+    height: calc(100vh - 80px);
+    padding-top: 140px;
+    align-items: center;
+    justify-content: center;
+}
+
+#space {
+    position: relative;
+    transform: perspective(800px) rotateX(-30deg) rotateY(-30deg);
+    transform-style: preserve-3d;
+    cursor: move;
+}
+
+.cube {
+    width: 200px;
+    height: 200px;
+}
+
+.cube div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    backface-visibility: hidden;
+    opacity: 1;
+}
+
+.front {
+    transform: translateZ(100px);
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200px" height="200px"><linearGradient id="cyan-lime" x1="0" x2="0" y1="0" y2="1"><stop stop-color="cyan"/><stop offset="1" stop-color="lime"/></linearGradient><linearGradient id="white-yellow" x1="0" x2="0" y1="0" y2="1"><stop stop-color="white"/><stop offset="1" stop-color="yellow"/></linearGradient><linearGradient id="gradient" x1="0" x2="1" y1="0" y2="0"><stop stop-color="white"/><stop offset="1" stop-color="black"/></linearGradient><mask id="gradient-mask"><rect x="0" y="0" width="100%" height="100%" fill="url(%23gradient)"/></mask><rect x="0" y="0" width="100%" height="100%" fill="url(%23white-yellow)"/><rect x="0" y="0" width="100%" height="100%" fill="url(%23cyan-lime)" mask="url(%23gradient-mask)"/></svg>');
+}
+
+.back {
+    transform: translateZ(-100px) rotateY(180deg);
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200px" height="200px"><linearGradient id="magenta-red" x1="0" x2="0" y1="0" y2="1"><stop stop-color="magenta"/><stop offset="1" stop-color="red"/></linearGradient><linearGradient id="blue-black" x1="0" x2="0" y1="0" y2="1"><stop stop-color="blue"/><stop offset="1" stop-color="black"/></linearGradient><linearGradient id="gradient" x1="0" x2="1" y1="0" y2="0"><stop stop-color="white"/><stop offset="1" stop-color="black"/></linearGradient><mask id="gradient-mask"><rect x="0" y="0" width="100%" height="100%" fill="url(%23gradient)"/></mask><rect x="0" y="0" width="100%" height="100%" fill="url(%23blue-black)"/><rect x="0" y="0" width="100%" height="100%" fill="url(%23magenta-red)" mask="url(%23gradient-mask)"/></svg>');
+}
+
+.left {
+    transform: translateX(-100px) rotateY(-90deg);
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200px" height="200px"><linearGradient id="blue-black" x1="0" x2="0" y1="0" y2="1"><stop stop-color="blue"/><stop offset="1" stop-color="black"/></linearGradient><linearGradient id="cyan-lime" x1="0" x2="0" y1="0" y2="1"><stop stop-color="cyan"/><stop offset="1" stop-color="lime"/></linearGradient><linearGradient id="gradient" x1="0" x2="1" y1="0" y2="0"><stop stop-color="white"/><stop offset="1" stop-color="black"/></linearGradient><mask id="gradient-mask"><rect x="0" y="0" width="100%" height="100%" fill="url(%23gradient)"/></mask><rect x="0" y="0" width="100%" height="100%" fill="url(%23cyan-lime)"/><rect x="0" y="0" width="100%" height="100%" fill="url(%23blue-black)" mask="url(%23gradient-mask)"/></svg>');
+}
+
+.right {
+    transform: translateX(100px) rotateY(90deg);
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200px" height="200px"><linearGradient id="white-yellow" x1="0" x2="0" y1="0" y2="1"><stop stop-color="white"/><stop offset="1" stop-color="yellow"/></linearGradient><linearGradient id="magenta-red" x1="0" x2="0" y1="0" y2="1"><stop stop-color="magenta"/><stop offset="1" stop-color="red"/></linearGradient><linearGradient id="gradient" x1="0" x2="1" y1="0" y2="0"><stop stop-color="white"/><stop offset="1" stop-color="black"/></linearGradient><mask id="gradient-mask"><rect x="0" y="0" width="100%" height="100%" fill="url(%23gradient)"/></mask><rect x="0" y="0" width="100%" height="100%" fill="url(%23magenta-red)"/><rect x="0" y="0" width="100%" height="100%" fill="url(%23white-yellow)" mask="url(%23gradient-mask)"/></svg>');
+}
+
+.top {
+    transform: translateY(-100px) rotateX(90deg);
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200px" height="200px"><linearGradient id="blue-cyan" x1="0" x2="0" y1="0" y2="1"><stop stop-color="blue"/><stop offset="1" stop-color="cyan"/></linearGradient><linearGradient id="magenta-white" x1="0" x2="0" y1="0" y2="1"><stop stop-color="magenta"/><stop offset="1" stop-color="white"/></linearGradient><linearGradient id="gradient" x1="0" x2="1" y1="0" y2="0"><stop stop-color="white"/><stop offset="1" stop-color="black"/></linearGradient><mask id="gradient-mask"><rect x="0" y="0" width="100%" height="100%" fill="url(%23gradient)"/></mask><rect x="0" y="0" width="100%" height="100%" fill="url(%23magenta-white)"/><rect x="0" y="0" width="100%" height="100%" fill="url(%23blue-cyan)" mask="url(%23gradient-mask)"/></svg>');
+}
+
+.bottom {
+    transform: translateY(100px) rotateX(-90deg);
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200px" height="200px"><linearGradient id="lime-black" x1="0" x2="0" y1="0" y2="1"><stop stop-color="lime"/><stop offset="1" stop-color="black"/></linearGradient><linearGradient id="yellow-red" x1="0" x2="0" y1="0" y2="1"><stop stop-color="yellow"/><stop offset="1" stop-color="red"/></linearGradient><linearGradient id="gradient" x1="0" x2="1" y1="0" y2="0"><stop stop-color="white"/><stop offset="1" stop-color="black"/></linearGradient><mask id="gradient-mask"><rect x="0" y="0" width="100%" height="100%" fill="url(%23gradient)"/></mask><rect x="0" y="0" width="100%" height="100%" fill="url(%23yellow-red)"/><rect x="0" y="0" width="100%" height="100%" fill="url(%23lime-black)" mask="url(%23gradient-mask)"/></svg>');
+}
+
+.axes div {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    height: 1px;
+    font-size: 12px;
+    line-height: 2;
+    text-align: right;
+    color: #495065;
+    border-bottom: 1px dashed #495065;
+    transform-origin: 0 0;
+}
+
+.axes .x {
+    transform: translateZ(-100px) rotateY(90deg) rotateY(-90deg);
+}
+
+.axes .x::before {
+    content: 'Red (X)';
+}
+
+.axes .y {
+    transform: translateZ(200px) rotateX(90deg) rotateZ(-90deg);
+    text-align: left;
+}
+
+.axes .y::after {
+    content: 'Green (Y)';
+}
+
+.axes .z {
+    transform: translateZ(-100px) rotateZ(-90deg);
+}
+
+.axes .z::before {
+    content: 'Blue (Z)';
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    font-size: 14px;
+    color: #9AA7B9;
+}
+
+.copyright {
+    margin-left: 24px;
+}
+
+.designer {
+    margin-right: 24px;
+}
+
+.designer a {
+    color: #9AA7B9;
+    transition: all .3s;
+}
+
+.designer a:hover {
+    color: #2D323E;
+}
+
+@media screen and (max-width: 399px) {
+    header {
+        height: 60px;
+    }
+
+    .canvas {
+    height: calc(100vh + 10px)
+    }
+
+    footer {
+        flex-direction: column;
+        height: 80px;
+    }
+    .copyright, .designer {
+        flex-grow: 1;
+        text-align: center;
+        margin: 0;
+    }
+}
