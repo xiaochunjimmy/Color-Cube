@@ -27,4 +27,3 @@ PLAN 完善计划：
 - [ ] Can be dragged by finger on the mobile screen | 支持移动端手指拖拽；
 - [ ] Display with opacity | 支持半透明效果；
 - [ ] Hide axis button | 支持隐藏坐标轴；
-
