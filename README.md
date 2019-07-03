@@ -1,6 +1,6 @@
 # Color-Cube
 
-[LIVE PREVIEW | 动态展示](https://cube.zhangxiaochun.com)
+[LIVE PREVIEW 动态展示](https://cube.zhangxiaochun.com) | [CodePen](https://codepen.io/jimmycheung/pen/dBKywY)
 
 
 
